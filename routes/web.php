@@ -70,3 +70,11 @@ Route::patch('/jobs/{id}', function ($id) {
     return redirect('/jobs/' . $job->id);
 });
 
+Route::delete('/jobs/{id}', function ($id) {
+    // authorize (On hold...)
+
+    Job::findOrFail($id)->delete();
+
+    return redirect('/jobs');
+});
+
