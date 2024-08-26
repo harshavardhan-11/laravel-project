@@ -21,4 +21,11 @@ class Job extends Model {
         return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
 
     }
+
+    public function tag(string $name): void
+    {
+        $tag = Tag::firstOrCreate(['name' => $name]);
+
+        $this->tags()->attach($tag);
+    }
 }
