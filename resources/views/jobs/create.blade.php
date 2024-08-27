@@ -35,6 +35,39 @@
                             <x-form-error name="salary" />
                         </div>
                     </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="location">Location</x-form-label>
+
+                        <div class="mt-2">
+                            <x-form-input name="location" id="location" placeholder="Hyderabad" />
+
+                            <x-form-error name="location" />
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="schedule">Location</x-form-label>
+
+                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                            <select class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" name="schedule" id="schedule">
+                                <option value="Part Time">Part Time</option>
+                                <option value="Full Time">Full Time</option>
+                            </select>
+
+                            <x-form-error name="schedule" />
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="tags">Tags</x-form-label>
+
+                        <div class="mt-2">
+                            <x-form-input name="tags" itagsd="tags" placeholder="Engineer, Tester" />
+
+                            <x-form-error name="tags" />
+                        </div>
+                    </x-form-field>
                 </div>
             </div>
         </div>

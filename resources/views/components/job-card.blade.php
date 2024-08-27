@@ -10,9 +10,10 @@
 
     <div class="flex justify-between items-center mt-auto">
         <div>
-            <x-tag>Tag</x-tag>
-            <x-tag>Tag</x-tag>
-            <x-tag>Tag</x-tag>
+            @foreach ($job->tags as $tag)
+                <x-tag>{{$tag->name}}</x-tag>
+            @endforeach
+
         </div>
 
     </div>

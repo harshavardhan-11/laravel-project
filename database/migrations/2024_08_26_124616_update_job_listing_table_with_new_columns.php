@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::table('job_listings', function (Blueprint $table) {
             $table->string('location');
             $table->string('schedule')->default('Full Time');
-            $table->string('url');
-            $table->boolean('featured')->default(false);
         });
     }
 
@@ -27,8 +25,6 @@ return new class extends Migration
         Schema::table('job_listings', function (Blueprint $table) {
             $table->dropColumn('location');
             $table->dropColumn('schedule');
-            $table->dropColumn('url');
-            $table->dropColumn('featured');
         });
     }
 };

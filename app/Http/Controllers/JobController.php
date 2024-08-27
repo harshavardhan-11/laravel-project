@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\JobPosted;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::with('employer')->latest()->simplePaginate(3);
-
+        $jobs = Job::with(['employer', 'tags'])->latest()->simplePaginate(3);
+//        dd($jobs);
         return view('jobs.index', [
             'jobs' => $jobs
         ]);
@@ -29,16 +32,22 @@ class JobController extends Controller
 
     public function store()
     {
-        request()->validate([
+        $attributes = request()->validate([
             'title' => ['required', 'min:3'],
-            'salary' => ['required']
+            'salary' => ['required'],
+            'location' => ['required'],
+            'schedule' => ['required', Rule::in(['Part Time', 'Full Time'])],
+            'tags' => ['nullable'],
         ]);
 
-        $job =  Job::create([
-            'title' => request('title'),
-            'salary' => request('salary'),
-            'employer_id' => 1
-        ]);
+//        dd(Auth::user()->employer->jobs());
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+
+        if ($attributes['tags'] ?? false) {
+            foreach (explode(',', $attributes['tags']) as $tag) {
+                $job->tag($tag);
+            }
+        }
 
         Mail::to($job->employer->user)->queue(
             new JobPosted($job)
