@@ -24,6 +24,16 @@
                     </x-form-field>
 
                     <x-form-field>
+                        <x-form-label for="employer">Employer Name</x-form-label>
+
+                        <div class="mt-2">
+                            <x-form-input name="employer" id="employer" required />
+
+                            <x-form-error name="employer" />
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
                         <x-form-label for="email">Email</x-form-label>
 
                         <div class="mt-2">
