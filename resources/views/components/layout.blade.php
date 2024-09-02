@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    @livewireStyles
     @vite('resources/js/app.js')
 </head>
 <body class="h-full">
@@ -111,6 +113,6 @@
             </div>
         </main>
     </div>
-
+    @livewireScripts
 </body>
 </html>

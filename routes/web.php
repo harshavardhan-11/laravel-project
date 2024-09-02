@@ -29,4 +29,6 @@ Route::get('/login', [SessionController::class, 'create'])->name('login');
 
 Route::post('/logout', [SessionController::class, 'destroy']);
 
-Route::get('/charts', [JobController::class, 'charts']);
+Route::get('/charts', function (){
+    return view('charts');
+});

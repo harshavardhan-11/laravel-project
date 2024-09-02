@@ -87,19 +87,4 @@ class JobController extends Controller
 
         return redirect('/jobs');
     }
-
-    public function charts() {
-        $thisYearJobs = Job::query()
-        ->whereYear('created_at', date('Y'))
-        ->groupByMonth();
-
-        $lastYearJobs = Job::query()
-            ->whereYear('created_at', date('Y') - 1)
-            ->groupByMonth();
-//        dd($thisYearJobs, $lastYearJobs);
-        return view('charts', [
-            'thisYearJobs' => $thisYearJobs,
-            'lastYearJobs' => $lastYearJobs,
-        ]);
-    }
 }
