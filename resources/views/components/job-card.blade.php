@@ -1,6 +1,11 @@
-@props(['job' => []])
+@props(['job' => [], 'appliedOn' => null])
 <div class="block px-4 py-6 border border-gray-200 rounded-lg bg-black text-white">
-    <div class="self-start text-sm">{{ $job->employer->name }}</div>
+    <div class="flex justify-between">
+        <div class="self-start text-sm">{{ $job->employer->name }}</div>
+        @if($appliedOn)
+            <div class="self-start text-sm"> Applied On {{ $appliedOn }}</div>
+        @endif
+    </div>
 
     <div class="py-8 font-bold">
         <h3>{{ $job['title'] }}</h3>

@@ -10,10 +10,10 @@ class AppliedJobsController extends Controller
     public function index()
     {
         $appliedJobs = Auth::user()->appliedJobs()
-            ->with(['job.employer'])
+            ->with(['job.employer', 'job.tags'])
             ->latest()
             ->simplePaginate(3);
-
+//        dd($appliedJobs);
         return view('jobs.applied-jobs', [
             'appliedJobs' => $appliedJobs
         ]);
