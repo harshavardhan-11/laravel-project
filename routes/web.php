@@ -21,7 +21,7 @@ Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
 Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
-Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('register.create');
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
 Route::post('/login', [SessionController::class, 'store']);

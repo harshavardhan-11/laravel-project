@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class Job extends Model {
+class Job extends Model
+{
     use HasFactory;
+
     protected $table = 'job_listings';
 
     protected $guarded = ['id'];
