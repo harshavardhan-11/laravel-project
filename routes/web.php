@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppliedJobsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
@@ -32,3 +33,5 @@ Route::post('/logout', [SessionController::class, 'destroy']);
 Route::get('/charts', function (){
     return view('charts');
 });
+
+Route::get('/applied-jobs', [AppliedJobsController::class, 'index'])->middleware('auth');
