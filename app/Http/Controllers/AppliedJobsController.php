@@ -13,7 +13,6 @@ class AppliedJobsController extends Controller
             ->with(['job.employer', 'job.tags'])
             ->latest()
             ->simplePaginate(3);
-//        dd($appliedJobs);
         return view('jobs.applied-jobs', [
             'appliedJobs' => $appliedJobs
         ]);

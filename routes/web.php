@@ -19,6 +19,10 @@ Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
     ->middleware('auth')
     ->can('edit', 'job');
 
+Route::get('/jobs/{job}/apply', [JobController::class, 'apply'])
+    ->middleware('auth')
+    ->can('edit', 'apply');
+
 Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 

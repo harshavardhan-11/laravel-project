@@ -18,4 +18,9 @@
             <x-button href="/jobs/{{ $job->id }}/edit">Edit Job</x-button>
         </p>
     @endcan
+    @can('apply', $job)
+        <p class="mt-6">
+            <x-button href="/jobs/{{ $job->id }}/apply">Apply Job</x-button>
+        </p>
+    @endcan
 </x-layout>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\JobPosted;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AppliedJob;
 
 class JobController extends Controller
 {
@@ -86,5 +87,24 @@ class JobController extends Controller
         $job->delete();
 
         return redirect('/jobs');
+    }
+
+    public function apply(Job $job) {
+        $existingApplication = AppliedJob::where('job_listing_id', $job->id)
+        ->where('user_id', Auth::id())
+        ->first();
+
+        if ($existingApplication) {
+            return redirect('/applied-jobs');
+        } 
+        // Create a new application
+        AppliedJob::create([
+            'job_listing_id' => $job->id,
+            'user_id' => Auth::id(),
+            'is_active' => true, 
+            'remarks' => ''
+        ]);
+
+        return redirect('/applied-jobs');
     }
 }
