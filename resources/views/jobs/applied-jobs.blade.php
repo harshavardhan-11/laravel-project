@@ -8,7 +8,7 @@
 
     <div class="space-y-4">
         @foreach ($appliedJobs as $appliedJob)
-            <a href="/jobs/{{ $appliedJob->job['id'] }}">
+            <a href="/applied-jobs/{{ $appliedJob->id }}">
                 <x-job-card :job="$appliedJob->job" :appliedOn="$appliedJob->created_at"></x-job-card>
             </a>
         @endforeach

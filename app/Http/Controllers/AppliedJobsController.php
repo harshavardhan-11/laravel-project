@@ -17,4 +17,17 @@ class AppliedJobsController extends Controller
             'appliedJobs' => $appliedJobs
         ]);
     }
+
+    public function show(AppliedJob $appliedJob) {
+        $appliedJobDetails = $appliedJob->with(['job.employer', 'job.tags'])->first();
+        return view('jobs.applied-job', [
+            'appliedJob' => $appliedJobDetails
+        ]);
+    }
+
+    public function delete(AppliedJob $appliedJob) {
+        $appliedJob->delete();
+
+        return redirect('/applied-jobs');
+    }
 }

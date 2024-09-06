@@ -41,7 +41,6 @@ class JobController extends Controller
             'tags' => ['nullable'],
         ]);
 
-//        dd(Auth::user()->employer->jobs());
         $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
 
         if ($attributes['tags'] ?? false) {

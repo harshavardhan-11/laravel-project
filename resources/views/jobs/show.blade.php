@@ -19,8 +19,13 @@
         </p>
     @endcan
     @can('apply', $job)
-        <p class="mt-6">
-            <x-button href="/jobs/{{ $job->id }}/apply">Apply Job</x-button>
-        </p>
+    <div class="mt-6">
+        <x-form-button form="apply-job">Apply Job</x-form-button>
+        <!-- <button form="apply-job" class="text-red-500 text-sm font-bold">Apply Job</button> -->
+    </div>
     @endcan
+
+    <form method="POST" action="/jobs/{{ $job->id }}/apply" id="apply-job" class="hidden">
+        @csrf
+    </form>
 </x-layout>

@@ -19,9 +19,9 @@ Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
     ->middleware('auth')
     ->can('edit', 'job');
 
-Route::get('/jobs/{job}/apply', [JobController::class, 'apply'])
+Route::POST('/jobs/{job}/apply', [JobController::class, 'apply'])
     ->middleware('auth')
-    ->can('edit', 'apply');
+    ->can('apply', 'job');
 
 Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
@@ -39,3 +39,5 @@ Route::get('/charts', function (){
 });
 
 Route::get('/applied-jobs', [AppliedJobsController::class, 'index'])->middleware('auth');
+Route::get('/applied-jobs/{appliedJob}', [AppliedJobsController::class, 'show'])->middleware('auth');
+Route::delete('/applied-jobs/{appliedJob}', [AppliedJobsController::class, 'delete'])->middleware('auth');
