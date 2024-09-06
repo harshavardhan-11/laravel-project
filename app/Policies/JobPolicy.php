@@ -14,6 +14,6 @@ class JobPolicy
 
     public function apply(User $user, Job $job): bool
     {
-        return !$job->employer->user->is($user);
+        return $job->employer->user->isNot($user);
     }
 }
