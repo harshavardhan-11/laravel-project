@@ -5,6 +5,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\DompdfInvoiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index');
@@ -43,3 +44,4 @@ Route::get('/applied-jobs', [AppliedJobsController::class, 'index'])->middleware
 Route::get('/applied-jobs/{appliedJob}', [AppliedJobsController::class, 'show'])->middleware('auth');
 Route::delete('/applied-jobs/{appliedJob}', [AppliedJobsController::class, 'delete'])->middleware('auth');
 Route::get('/generate-invoice', [InvoiceController::class, 'generatePdf']);
+Route::get('/dompdf-invoice', [DompdfInvoiceController::class, 'generateInvoice']);
