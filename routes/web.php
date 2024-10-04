@@ -8,6 +8,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\DompdfInvoiceController;
 use App\Http\Controllers\TcpdfInvoiceController;
 use App\Http\Controllers\NiklasravnsborgInvoiceController;
+use App\Http\Controllers\SnappyInvoiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index');
@@ -49,3 +50,4 @@ Route::get('/generate-invoice', [InvoiceController::class, 'generatePdf']);
 Route::get('/dompdf-invoice', [DompdfInvoiceController::class, 'generateInvoice']);
 Route::get('/tcpdf-invoice', [TcpdfInvoiceController::class, 'generatePDF']);
 Route::get('/niklasravnsborg-invoice', [NiklasravnsborgInvoiceController::class, 'downloadInvoice']);
+Route::get('/snappy-invoice', [SnappyInvoiceController::class, 'generatePdf']);
