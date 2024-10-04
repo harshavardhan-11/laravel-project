@@ -11,6 +11,7 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "niklasravnsborg/laravel-pdf": "^4.1",
         "spatie/browsershot": "^4.3"
     },
     "require-dev": {
