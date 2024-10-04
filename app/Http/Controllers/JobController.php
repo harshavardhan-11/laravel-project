@@ -99,9 +99,7 @@ class JobController extends Controller
         // Create a new application
         AppliedJob::create([
             'job_listing_id' => $job->id,
-            'user_id' => Auth::id(),
-            'is_active' => true, 
-            'remarks' => ''
+            'user_id' => Auth::id()
         ]);
 
         return redirect('/applied-jobs');

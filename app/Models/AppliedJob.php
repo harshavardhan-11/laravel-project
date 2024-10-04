@@ -18,6 +18,16 @@ class AppliedJob extends Model
         'is_active',
     ];
 
+    protected $attributes = [
+        'is_active' => 1,
+        'remarks' => ""
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+        'remarks' => 'string'
+    ];
+
     public function job(): BelongsTo
     {
         return $this->belongsTo(Job::class, 'job_listing_id');

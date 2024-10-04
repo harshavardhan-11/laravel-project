@@ -4,6 +4,7 @@ use App\Http\Controllers\AppliedJobsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index');
@@ -41,3 +42,4 @@ Route::get('/charts', function (){
 Route::get('/applied-jobs', [AppliedJobsController::class, 'index'])->middleware('auth');
 Route::get('/applied-jobs/{appliedJob}', [AppliedJobsController::class, 'show'])->middleware('auth');
 Route::delete('/applied-jobs/{appliedJob}', [AppliedJobsController::class, 'delete'])->middleware('auth');
+Route::get('/generate-invoice', [InvoiceController::class, 'generatePdf']);
