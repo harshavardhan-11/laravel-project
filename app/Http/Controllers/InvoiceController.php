@@ -8,10 +8,11 @@ class InvoiceController extends Controller
 {
     public function generatePdf()
     {
-        $html = view('invoice')->render();
+        $html = view('allCharts')->render();
 
         Browsershot::html($html)
             ->format('A4')
+            ->setDelay(1000)  
             ->save(storage_path('app/public/invoice.pdf'));
 
         return response()->download(storage_path('app/public/invoice.pdf'));

@@ -51,3 +51,5 @@ Route::get('/dompdf-invoice', [DompdfInvoiceController::class, 'generateInvoice'
 Route::get('/tcpdf-invoice', [TcpdfInvoiceController::class, 'generatePDF']);
 Route::get('/niklasravnsborg-invoice', [NiklasravnsborgInvoiceController::class, 'downloadInvoice']);
 Route::get('/snappy-invoice', [SnappyInvoiceController::class, 'generatePdf']);
+Route::view('/all-charts', 'allCharts');
+
